@@ -1,0 +1,138 @@
+/* General Reset */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+main {
+    margin: 50px auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem; /* Tăng khoảng cách giữa nav và form */
+    flex-grow: 1;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #143914;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+  
+  /* Contact Form Styling */
+  .register-form {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+    width: 100%;
+  }
+  
+  .register-form h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #143914;
+    text-align: center;
+  }
+  
+  form label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border 0.3s ease;
+  }
+  
+  form input:focus,
+  form textarea:focus {
+    border-color: #143914;
+    outline: none;
+  }
+  
+  form textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  form button {
+    display: block;
+    background-color: #143914;
+    color: #ffffff;
+    padding: 12px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+  }
+  
+  form button:hover {
+    background-color: #ffdd57;
+    color: #143914;
+    transform: translateY(-3px);
+  }
+  
+  /* Fade-In Animation */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-form {
+        padding: 20px;
+    }
+  }

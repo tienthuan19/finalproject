@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/orderCSS/orderSearchResultsCSS.css">
+
+  <title>Search Results</title>
+
+</head>
+<body>
+  <div class="dashboard">
+    <%- include('../partials/panel') %>
+  <div class="main-content">
+    <div class="header">
+      <h1>Search Results for "<%= query %>"</h1>
+    </div>
+    <div class="order-list">
+      <% if (orders.length > 0) { %>
+        <% orders.forEach(order => { %>
+          <div class="order-card">
+            <p><strong>Order Code:</strong> <%= order.orderCode %></p>
+            <p><strong>Name:</strong> <%= order.name %></p>
+            <p><strong>Phone:</strong> <%= order.phone %></p>
+            <p><strong>Address:</strong> <%= order.address %></p>
+            <p><strong>Date:</strong> <%= order.date.toDateString() %></p>
+            <p><strong>Total Cost:</strong> $<%= order.totalCost.toFixed(2) %></p>
+            <p><strong>Current Status:</strong> 
+              <% if (order.statusHistory.length > 0) { %>
+                <%= order.statusHistory[order.statusHistory.length - 1].status %>
+              <% } else { %>
+                Unavailable
+              <% } %>
+            </p>
+            <div class="food-items">
+              <strong>Food Items:</strong>
+              <ul>
+                <% order.foodItems.forEach(food => { %>
+                  <li>
+                    <%= food.name %> - $<%= food.price.toFixed(2) %> x <%= food.quantity %> = 
+                    $<%= (food.price * food.quantity).toFixed(2) %>
+                  </li>
+                <% }) %>
+              </ul>
+            </div>      
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No results found for "<%= query %>".</p>
+      <% } %>
+    </div>
+  </div>
+  </div>
+
+  
+</body>
+</html>
+

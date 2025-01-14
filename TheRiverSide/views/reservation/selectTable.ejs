@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/reservationCSS/reservationSelectTableCSS.css">
+  
+  <title>Reservation</title>
+   
+</head>
+<%- include('../partials/header') %>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h1>Select Your Area</h1>
+    </div>
+  </header>
+
+  <main>
+  <form id="tableForm" action="/reservation/selectTable" method="POST">
+    <div class="table-layout">
+      <% const tables = ['Table 1', 'Table 2', 'Table 3', 'Table 4', 'Table 5', 'Table 6']; %>
+      <% tables.forEach(table => { %>
+        <button type="button" class="table-button <%= bookedTables.includes(table) ? 'disabled' : '' %>"
+      <%
+        if (!bookedTables.includes(table)) { %>
+        onclick="selectTable('<%= table %>')"
+      <% } %>
+      <%= bookedTables.includes(table) ? 'disabled' : '' %>
+      >
+    <%= table %>
+</button>
+
+    
+<% }) %>
+    </div>
+    <input type="hidden" id="selectedTable" name="table" required>
+    <button type="submit" style="margin-top: 20px;">Confirm Selection</button>
+  </form>
+</main>
+
+  <%- include('../partials/footer') %>
+  <script>
+    function selectTable(tableName) {
+      document.querySelectorAll('.table-button').forEach(button => {
+        button.classList.remove('selected');
+      });
+      const selectedButton = [...document.querySelectorAll('.table-button')].find(
+        button => button.textContent.trim() === tableName
+      );
+      if (selectedButton) selectedButton.classList.add('selected');
+      document.getElementById('selectedTable').value = tableName;
+    }
+  </script>
+
+</body>
+</html>

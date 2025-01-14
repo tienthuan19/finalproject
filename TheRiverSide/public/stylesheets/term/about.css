@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fdfdfd;
+    color: #333;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #143914;
+    padding: 10px 0;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;    font-size: 45px; 
+    font-size: 50px; 
+    font-weight: 700; 
+    color: #143914;
+}
+
+
+.main-content {
+    padding-top: 80px;
+    background-color: #fff;
+}
+
+
+.about-section, .mission-section {
+    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; 
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #fff;
+    color: #143914;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mission-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    background-color: #143914;
+    color: white;
+    border-radius: 15px; 
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.about-image, .mission-image {
+    width: 50%; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.about-content, .mission-content {
+    width: 50%;
+}
+
+
+.about-content h2, .mission-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+
+.about-content p, .mission-content p {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-style: italic; 
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.team-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff; 
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-evenly; 
+    gap: 30px; 
+    flex-wrap: wrap; 
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.team-member h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #143914;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #555;
+}

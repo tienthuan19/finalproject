@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/menuCSS/addMenuCSS.css">
+  <title>Add Menu</title>
+</head>
+<body>
+  
+
+<div class="dashboard">
+  <%- include('../partials/panel') %>
+  <main>
+    <div class="add-form">
+    <h1>Add New Food</h1>
+
+    <form action="/menu/add" method="POST" class="form-container">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+      </div>
+      <div class="form-group">
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" required>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+    
+</div>
+</main>
+
+</body>
+</html>

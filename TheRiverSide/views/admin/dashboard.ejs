@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/dashboard.css">
+
+  <title>Admin Dashboard</title>
+
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <%- include('../partials/panel') %>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <h1>Admin Dashboard</h1>
+        <p class="welcome">Welcome, <%= username %>!</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <a href="/contact/contactView">Manage Contacts</a>
+        </div>
+        <div class="card">
+          <a href="/order/all">View Orders</a>
+        </div>
+        <div class="card">
+          <a href="/reservation/all">View Reservations</a>
+        </div>
+        <div class="card">
+          <a href="/menu">Manage Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+</body>
+</html>

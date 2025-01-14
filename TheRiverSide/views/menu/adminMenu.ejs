@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/menuCSS/adminMenuCSS.css">
+  <title>Admin Menu</title>
+</head>
+<body>
+  <div class="dashboard">
+    <%- include('../partials/panel') %>
+  <div class="main-content">
+    <div class="header">
+      <h1>Admin - Manage Food Menu</h1>
+    </div>
+    <form method="GET" action="/menu">
+      <input
+        type="text"
+        name="search"
+        placeholder="Search by name..."
+        value="<%= search || '' %>"
+        required
+      />
+      <button type="submit">Search</button>
+      <a href="/menu">Reset</a>
+    </form>
+    <a href="/menu/add">Add New Food</a>
+      <table border="1" cellpadding="10">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+        <% menuItems.forEach(item => { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td>$<%= item.price %></td>
+            <td><img src="<%= item.image %>" alt="<%= item.name %>" width="100"></td>
+            <td>
+              <a href="/menu/edit/<%= item._id %>">Edit</a>
+              <a href="/menu/delete/<%= item._id %>" onclick="return confirm('Are you sure?');">Delete</a>
+            </td>
+          </tr>
+        <% }) %>
+      </table>
+  </div>
+  </div>
+
+</body>
+</html>

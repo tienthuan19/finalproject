@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/auth/register.css">
+
+</head>
+<body>
+    <%- include('../partials/header') %>
+  <main>
+    <div class="register-form">
+      <form action="/register" method="POST">
+        <h2>Register</h2>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <br>
+        <label for="role">Role:</label>
+        <select name="role" id="role">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <br>
+        <button type="submit">Register</button>
+      </form>
+</div>
+</main>
+<%- include('../partials/footer') %>
+</body>
+</html>

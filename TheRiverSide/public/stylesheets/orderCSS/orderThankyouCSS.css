@@ -1,0 +1,133 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes the full height */
+}
+
+/* Thank You Container */
+.thankyou-container {
+    flex: 1; /* Allows this content to grow and push the footer to the bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    margin: 40px auto;
+    padding: 40px;
+    max-width: 800px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+    flex-direction: column;
+   
+}
+
+.thankyou-container h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #143914;
+    margin-bottom: 20px;
+}
+
+.thankyou-container p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.thankyou-container a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #143914;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.thankyou-container a:hover {
+    background-color: #ffdd57;
+    color: #143914;
+    transform: translateY(-3px);
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #143914;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-weight: 500;
+}
+
+footer a {
+    color: #ffdd57;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .thankyou-container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .thankyou-container h1 {
+        font-size: 2rem;
+    }
+
+    .thankyou-container p {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,264 @@
+/* Đặt font chữ và reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fdfdfd;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-image: url("/images/index/header.png");/*tạo nền trang */
+    background-size: cover;
+    background-position: center;
+    padding: 250px 20px;
+    text-align: center;
+    color: white;
+}
+
+.header header.text-center {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px; /*bo tròn các cạnh */
+    display: inline-block; /*căn giữa các chữ */
+}
+
+.header header.text-center h1 {
+    font-size: 60px;
+    font-family: 'Playfair Display', serif; /*font riêgn cho tiêu đề */
+    margin-bottom: 10px;
+}
+
+.header header.text-center p {
+    font-size: 20px;
+    font-weight: 500; /*độ dày chữ */
+    margin: 20px 0;
+}
+
+.header .btn-light {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 30px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s; /* hiệu ứng khi đưa chuọt vào */
+}
+
+.header .btn-lightn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Menu Section */
+#menu {
+    display: flex; /*sấp sếp nội dung theo hàng ngang */
+    align-items: center;
+
+    background-color: #FFC1C1;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /*đổ bóng */
+}
+
+#menu .btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: 1px solid #2f2f2f;
+    color: #528063;
+    color:  white;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #296b26;
+    
+}
+
+#menu .btn-primary:hover {
+    background-color: #2f2f2f;
+    color: white;
+}
+
+/* Dining Options Section */
+.dining-section {
+    display: flex;
+    padding: 60px;
+    background-color: #143914;
+    color: white;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dining-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.dining-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.dining-content p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #cccccc;
+}
+
+.image-and-button {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.dining-image video {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bag-image {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dining-section .button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dining-section .button:hover {
+    background-color: white;
+    color: #143914;
+}
+
+.dining-image {
+    flex: 1;
+    position: relative;
+    text-align: center;
+}
+
+.dining-image img {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dining-image .button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    border: 1px solid white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dining-image .button:hover {
+    background-color: white;
+    color: #143914;
+}
+
+/* Review Section */
+.review-section {
+    display: flex;
+    align-items: center;
+    background-color: #2f4f2f;
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 98%;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.review-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.review-content {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.review-badge {
+    font-size: 12px;
+    border: 1px solid #ffffff;
+    padding: 5px 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.review-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffdd57;
+}
+
+.review-content h3 {
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.review-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.review-author {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.review-rating {
+    font-size: 20px;
+    color: #ffdd57;
+    margin-top: 10px;
+}
+
+.review-navigation {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-arrow {
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.nav-arrow:hover {
+    color: #ffdd57;
+}
+

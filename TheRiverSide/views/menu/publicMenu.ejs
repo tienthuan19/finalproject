@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/menuCSS/publicMenuCSS.css">
+  
+  <title>Menu</title>
+</head>
+<body>
+  <%- include('../partials/header') %>
+<header class="header">
+  <div class="header-content">
+      <h1>Menu</h1>
+  </div>
+</header>
+
+<div class="custom-search-bar">
+  <form method="GET" action="/menu/public" style="display: flex; gap: 10px;">
+    <input
+      type="text"
+      class="search-input"
+      name="search"
+      placeholder="Search by name..."
+      value="<%= search || '' %>"
+      required
+    />
+    <button type="submit" class="search-button">Search</button>
+    <a href="/menu/public" class="reset-link">Reset</a>
+  </form>
+</div>
+<div class="container">
+  <div id="menu-items">
+    <section class="menu-category">
+      <div class="menu-items">
+        <% menuItems.forEach(item => { %>
+          <div class="menu-item">
+            <img src="<%= item.image %>" alt="<%= item.name %>">
+            <div class="menu-item-content">
+              <h4><%= item.name %></h4>
+              <p><%= item.description %></p>
+              <span>Price: $<%= item.price %></span>
+            </div>
+          </div>
+        <% }) %>
+        <% if (menuItems.length === 0) { %>
+          <p>No results found for "<%= search %>".</p>
+        <% } %>
+      </div>
+    </section>
+  </div>
+</div>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>
+
+

@@ -1,0 +1,184 @@
+/* Đặt font chữ và reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fdfdfd;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #143914;
+    padding: 1rem 2rem;
+    color: #fff;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Điểm nhấn liên kết */
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hiệu ứng gạch chân */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #ffdd57;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after { /* Hiệu ứng khi active */
+    width: 100%;
+}
+
+.nav-links li a:hover {
+    color: #ffdd57;
+}
+
+.order-now {
+    background-color: #143914;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.order-now:hover {
+    background-color: white;
+    color: #143914;
+}
+
+footer {
+    background-color: #143914;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffdd57;
+}
+
+.footer-brand {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer-brand p {
+    margin: 0;
+}
+
+/* Terms & Conditions Styles */
+.terms-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 100px 20px 20px; /* Add extra padding at the top */
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+.terms-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #143914;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.terms-title::before {
+    content: "✦";
+    font-size: 2rem;
+    color: #143914;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.terms-section {
+    margin-top: 30px;
+}
+
+.terms-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #143914;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.terms-section p {
+    font-size: 1rem;
+    color: #333;
+    text-align: justify;
+}

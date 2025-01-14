@@ -1,0 +1,149 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url(/images/river.jpg);
+}
+
+.header {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header-content {
+    text-align: center;
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+
+/* Content Margin */
+main {
+    margin-bottom: 80px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Styling */
+form {
+    background: #f7f6f6;
+    padding: 2.5rem 3rem;
+
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #eaeaea;
+    position: relative;
+
+}
+
+form h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+form button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+}
+
+form button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+form button:active {
+    background-color: #3e8e41;
+}
+
+/* Table Layout */
+.table-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: #e0f7fa; /* Light blue background for river area */
+}
+
+.table-button {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #000; /* Set table text to black */
+}
+
+/* Circular Table Positions */
+.table-button:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, 0); }
+.table-button:nth-child(2) { top: 25%; left: 10%; }
+.table-button:nth-child(3) { top: 25%; right: 10%; }
+.table-button:nth-child(4) { bottom: 25%; left: 10%; }
+.table-button:nth-child(5) { bottom: 25%; right: 10%; }
+.table-button:nth-child(6) { bottom: 0%; left: 50%; transform: translate(-50%, 0); }
+
+
+  .table-button:hover {
+    background-color: #d1e7ff;
+  }
+
+  .table-button:active {
+    background-color: #85c1e9;
+  }
+
+  .table-button.selected {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .table-button.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  

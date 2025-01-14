@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/orderCSS/orderAdminViewCSS.css">
+
+  <title>All Orders</title>
+  
+</head>
+<body>
+  <div class="dashboard">
+    <%- include('../partials/panel') %>
+  <div class="main-content">
+    <div class="header">
+      <h1>All Orders</h1>
+    </div>
+    <div class="search-container">
+      <form id="search-form" method="GET" action="/order/search">
+        <input
+          type="text"
+          name="query"
+          id="search-query"
+          placeholder="Search by Name or Order Code"
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    
+    <div class="container">
+      <!-- Unavailable Column -->
+      <div class="column">
+        <h3>Unavailable</h3>
+        <% orders.forEach(order => {
+          if (order.statusHistory.length === 0) { %>
+            <div class="order-card">
+              <p><strong>Order Code:</strong> <%= order.orderCode %></p>
+              <p><strong>Name:</strong> <%= order.name %></p>
+              <p><strong>Phone:</strong> <%= order.phone %></p>
+              <p><strong>Address:</strong> <%= order.address %></p>
+              <p><strong>Date:</strong> <%= order.date.toDateString() %></p>
+              <p><strong>Total Cost:</strong> $<%= order.totalCost.toFixed(2) %></p>
+        
+        <!-- Display Food Items -->
+        <div class="food-items">
+          <strong>Food Items:</strong>
+          <ul>
+            <% order.foodItems.forEach(food => { %>
+              <li>
+                <%= food.name %> - $<%= food.price.toFixed(2) %> x <%= food.quantity %> = 
+                $<%= (food.price * food.quantity).toFixed(2) %>
+              </li>
+            <% }) %>
+          </ul>
+        </div>      
+              <div class="status-history">
+                <strong>Status History:</strong>
+                <ul>
+                  <% order.statusHistory.forEach(history => { %>
+                    <li><%= history.status %> (Changed At: <%= new Date(history.changedAt).toLocaleString() %>)</li>
+                  <% }) %>
+                </ul>
+              </div>
+              <div class="status-buttons">
+                <a href="/order/status/<%= order._id %>/Paid" class="btn-paid">Mark as Paid</a>
+                <a href="/order/status/<%= order._id %>/Unpaid" class="btn-unpaid">Mark as Unpaid</a>
+                <a href="/order/status/<%= order._id %>/Canceled" class="btn-cancel">Cancel Order</a>
+                <a href="/order/delete/<%= order._id %>" class="btn-delete">Delete</a>
+              </div>
+            </div>
+        <% } }) %>
+      </div>
+  
+      <!-- Paid Column -->
+      <div class="column">
+        <h3>Paid</h3>
+        <% orders.forEach(order => {
+          if (order.statusHistory.length > 0 &&
+              order.statusHistory[order.statusHistory.length - 1].status === 'Paid') { %>
+            <div class="order-card">
+              <p><strong>Order Code:</strong> <%= order.orderCode %></p>
+              <p><strong>Name:</strong> <%= order.name %></p>
+              <p><strong>Phone:</strong> <%= order.phone %></p>
+              <p><strong>Address:</strong> <%= order.address %></p>
+              <p><strong>Date:</strong> <%= order.date.toDateString() %></p>
+              <p><strong>Total Cost:</strong> $<%= order.totalCost.toFixed(2) %></p>
+        
+        <!-- Display Food Items -->
+        <div class="food-items">
+          <strong>Food Items:</strong>
+          <ul>
+            <% order.foodItems.forEach(food => { %>
+              <li>
+                <%= food.name %> - $<%= food.price.toFixed(2) %> x <%= food.quantity %> = 
+                $<%= (food.price * food.quantity).toFixed(2) %>
+              </li>
+            <% }) %>
+          </ul>
+        </div>  
+  
+              <div class="status-history">
+                <strong>Status History:</strong>
+                <ul>
+                  <% order.statusHistory.forEach(history => { %>
+                    <li><%= history.status %> (Changed At: <%= new Date(history.changedAt).toLocaleString() %>)</li>
+                  <% }) %>
+                </ul>
+              </div>
+              <div class="status-buttons">
+                <a href="/order/status/<%= order._id %>/Unpaid" class="btn-unpaid">Mark as Unpaid</a>
+                <a href="/order/status/<%= order._id %>/Canceled" class="btn-cancel">Cancel Order</a>
+                <a href="/order/delete/<%= order._id %>" class="btn-delete">Delete</a>
+              </div>
+            </div>
+        <% } }) %>
+      </div>
+  
+      <!-- Unpaid Column -->
+      <div class="column">
+        <h3>Unpaid</h3>
+        <% orders.forEach(order => {
+          if (order.statusHistory.length > 0 &&
+              order.statusHistory[order.statusHistory.length - 1].status === 'Unpaid') { %>
+            <div class="order-card">
+              <p><strong>Order Code:</strong> <%= order.orderCode %></p>
+              <p><strong>Name:</strong> <%= order.name %></p>
+              <p><strong>Phone:</strong> <%= order.phone %></p>
+              <p><strong>Address:</strong> <%= order.address %></p>
+              <p><strong>Date:</strong> <%= order.date.toDateString() %></p>
+              <p><strong>Total Cost:</strong> $<%= order.totalCost.toFixed(2) %></p>
+        
+        <!-- Display Food Items -->
+        <div class="food-items">
+          <strong>Food Items:</strong>
+          <ul>
+            <% order.foodItems.forEach(food => { %>
+              <li>
+                <%= food.name %> - $<%= food.price.toFixed(2) %> x <%= food.quantity %> = 
+                $<%= (food.price * food.quantity).toFixed(2) %>
+              </li>
+            <% }) %>
+          </ul>
+        </div>  
+  
+              <div class="status-history">
+                <strong>Status History:</strong>
+                <ul>
+                  <% order.statusHistory.forEach(history => { %>
+                    <li><%= history.status %> (Changed At: <%= new Date(history.changedAt).toLocaleString() %>)</li>
+                  <% }) %>
+                </ul>
+              </div>
+              <div class="status-buttons">
+                <a href="/order/status/<%= order._id %>/Paid" class="btn-paid">Mark as Paid</a>
+                <a href="/order/status/<%= order._id %>/Canceled" class="btn-cancel">Cancel Order</a>
+                <a href="/order/delete/<%= order._id %>" class="btn-delete">Delete</a>
+              </div>
+            </div>
+        <% } }) %>
+      </div>
+  
+      <!-- Canceled Column -->
+      <div class="column">
+        <h3>Canceled</h3>
+        <% orders.forEach(order => {
+          if (order.statusHistory.length > 0 &&
+              order.statusHistory[order.statusHistory.length - 1].status === 'Canceled') { %>
+            <div class="order-card">
+              <p><strong>Order Code:</strong> <%= order.orderCode %></p>
+              <p><strong>Name:</strong> <%= order.name %></p>
+              <p><strong>Phone:</strong> <%= order.phone %></p>
+              <p><strong>Address:</strong> <%= order.address %></p>
+              <p><strong>Date:</strong> <%= order.date.toDateString() %></p>
+              <p><strong>Total Cost:</strong> $<%= order.totalCost.toFixed(2) %></p>
+        
+        <!-- Display Food Items -->
+        <div class="food-items">
+          <strong>Food Items:</strong>
+          <ul>
+            <% order.foodItems.forEach(food => { %>
+              <li>
+                <%= food.name %> - $<%= food.price.toFixed(2) %> x <%= food.quantity %> = 
+                $<%= (food.price * food.quantity).toFixed(2) %>
+              </li>
+            <% }) %>
+          </ul>
+        </div>  
+              <div class="status-history">
+                <strong>Status History:</strong>
+                <ul>
+                  <% order.statusHistory.forEach(history => { %>
+                    <li><%= history.status %> (Changed At: <%= new Date(history.changedAt).toLocaleString() %>)</li>
+                  <% }) %>
+                </ul>
+              </div>
+              <div class="status-buttons">
+                <a href="/order/status/<%= order._id %>/Paid" class="btn-paid">Mark as Paid</a>
+                <a href="/order/status/<%= order._id %>/Unpaid" class="btn-unpaid">Mark as Unpaid</a>
+                <a href="/order/delete/<%= order._id %>" class="btn-delete">Delete</a>
+              </div>
+            </div>
+        <% } }) %>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+</body>
+</html>
+
+
+

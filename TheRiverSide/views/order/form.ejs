@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/orderCSS/orderFormCSS.css">
+
+  <title>Order Now</title>
+
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+    <header class="header">
+      <div class="header-content">
+        <h1>Order Now</h1>
+      </div>
+    </header>
+  <main>
+  <form class="order-form" action="/order/submit" method="POST">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required><br><br>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required></textarea><br><br>
+
+    <div class="container">
+      <div class="menu-layout">
+      <div class="menu-items">
+        <section class="menu-category">
+          <div class="menu-items">
+        <% if (Array.isArray(menuItems)) { %>
+          <% menuItems.forEach(item => { %>
+            <div class="menu-item">
+
+              <img src="<%= item.image %>" alt="<%= item.name %>">
+              <div class="menu-item-conten">
+              <h3><%= item.name %></h3>
+              <p>Price: $<%= item.price %></p>
+              <label>
+                Quantity: 
+                <input type="number" name="foodItems[<%= item._id %>]" 
+                       min="0" max="10" value="0"
+                       data-price="<%= item.price %>">
+              </label>
+            </div>
+          </div>
+          <% }) %>
+        <% } else { %>
+          <p>No menu items available.</p>
+        <% } %>
+      </div>
+    </section>
+    </div>
+  </div>
+  </div>
+      <div class="total">Total: $<span id="totalPrice">0</span></div>
+      <button type="submit" class="submit-button">Place Order</button>
+    </main>
+    <%- include('../partials/footer') %>
+      <script>
+        const quantityInputs = document.querySelectorAll('input[type="number"]');
+        const totalPriceEl = document.getElementById('totalPrice');
+      
+        function updateTotal() {
+          let total = 0;
+          quantityInputs.forEach(input => {
+            const price = parseFloat(input.getAttribute('data-price'));
+            const quantity = parseInt(input.value) || 0;
+            total += price * quantity;
+          });
+          totalPriceEl.textContent = total.toFixed(2);
+        }
+      
+        quantityInputs.forEach(input => input.addEventListener('input', updateTotal));
+      </script>
+      
+</body>
+</html>
